@@ -35,6 +35,7 @@ export default function App() {
     }),
     [auth]
   );
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>

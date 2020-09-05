@@ -11,7 +11,6 @@ import "./LoginForm.scss";
 export default function LoginForm() {
   const [error, setError] = useState("");
   const [login] = useMutation(LOGIN);
-
   const { setUser } = useAuth();
 
   const formik = useFormik({
@@ -31,11 +30,10 @@ export default function LoginForm() {
           },
         });
         const { token } = data.login;
-        setToken(decodeToken(token));
-        setUser(token);
+        setToken(token);
+        setUser(decodeToken(token));
       } catch (error) {
         setError(error.message);
-        console.log(error);
       }
     },
   });
